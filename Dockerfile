@@ -11,7 +11,7 @@ EXPOSE 5000
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
-    apk add --update --no-cache postgresql-client openssl && \
+    apk add --update --no-cache postgresql-client openssl libpcre3 libpcre3-dev && \
     apk add --update --no-cache --virtual .tmp-build-deps \
                  build-base postgresql-dev musl-dev linux-headers && \
     /py/bin/pip install -r /tmp/requirements.txt && \
