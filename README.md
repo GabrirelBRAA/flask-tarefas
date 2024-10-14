@@ -3,7 +3,7 @@ Consegui fazer todo o backend com cache e hostear mas fiquei sem tempo. Faltou i
 
 Falando em front, não o fiz pela falta de tempo.
 
-Os endpoints hosteados estão abaixo. Como o certificado SSL é auto gerado, o browser vai reclamar mas está tudo pegando.
+Os endpoints hosteados estão abaixo. Como o certificado SSL é auto gerado, o browser vai reclamar, mas está tudo pegando.
 
 # Build
 - git clone
@@ -14,10 +14,13 @@ Os endpoints hosteados estão abaixo. Como o certificado SSL é auto gerado, o b
 # Endpoints
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com
 ------
+GET
+
 Health check
 
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com/task/list
 ------
+GET
 
 resposta:
 
@@ -32,6 +35,7 @@ resposta:
 ```
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com/user/create
 ------
+POST
 
 entrada:
 
@@ -51,6 +55,7 @@ resposta:
 ```
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com/user/login
 ------
+POST
 
 entrada:
 
@@ -70,6 +75,7 @@ resposta:
 ```
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com/task/6/update
 ------
+PATCH
 
 headers:
 
@@ -94,6 +100,7 @@ resposta:
 ```
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com/task/create
 ------
+POST
 
 headers:
 
@@ -119,6 +126,8 @@ resposta:
 
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com/task/1/delete
 ------
+POST
+
 headers:
 
     ```Authorization Bearer Token```
