@@ -1,0 +1,10 @@
+Flask
+SQLAlchemy
+psycopg2
+python-dotenv
+bcrypt
+flask-jwt-extended
+pydantic
+Flask-Caching
+redis
+uwsgi

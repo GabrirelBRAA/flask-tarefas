@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: .
+    user: root
+    ports:
+      - "8000:5000"
+    volumes:
+      - ./app:/app
+    environment:
+      - REDIS_URL=cache
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - db
+      - cache
+  
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+
+  cache:
+    image: redis:7.4-alpine
+    restart: always
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - cache:/data
+
+volumes:
+  dev-db-data:
+  cache:
