@@ -4,9 +4,12 @@ import bcrypt
 from flask_jwt_extended import create_access_token
 from flask import Blueprint, request, jsonify
 
+from flask_cors import cross_origin
+
 user_views = Blueprint('user_views', __name__, url_prefix='/user')
 
 @user_views.post('/create')
+@cross_origin()
 def create_user():
     try:
         validated_user = UserScheme.model_validate(request.json)
@@ -29,6 +32,7 @@ def create_user():
     return jsonify(validated_user.name), 201 #Validate this with pydantic
 
 @user_views.post('/login')
+@cross_origin()
 def login():
     name = request.json['name']
     try:

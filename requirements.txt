@@ -8,3 +8,4 @@ pydantic
 Flask-Caching
 redis
 uwsgi
+flask-cors

@@ -7,10 +7,12 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import get_jwt_identity
 from typing import List
 from app import cache
+from flask_cors import cross_origin
 
 task_views = Blueprint('task_views', __name__, url_prefix='/task')
 
 @task_views.post('/create')
+@cross_origin()
 @jwt_required()
 def create_task():
     user_id = get_jwt_identity()
@@ -32,6 +34,7 @@ def create_task():
 
 
 @task_views.get('/list')
+@cross_origin()
 @cache.cached(timeout=50)
 def listTasks():
     tasks = Task.query.all() #redis tem que ficar aqui
@@ -39,6 +42,7 @@ def listTasks():
     return [task.model_dump(mode='json') for task in tasks_json]
 
 @task_views.post('/<int:task_id>/delete')
+@cross_origin()
 @jwt_required()
 def delete_task(task_id):
     try:
@@ -58,6 +62,7 @@ def delete_task(task_id):
     return ('', 204)
 
 @task_views.route('/<int:task_id>/update', methods=['PATCH'])
+@cross_origin()
 @jwt_required()
 def update_task(task_id):
     try:
