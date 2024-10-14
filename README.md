@@ -1,3 +1,16 @@
+# Sobre o projeto
+Consegui fazer todo o backend com cache e hostear mas fiquei sem tempo. Faltou instalar o flake8 para seguir o PEP8 e também seria legal fazer ajustar o CORS junto com o front.
+
+Falando em front, não o fiz pela falta de tempo.
+
+Os endpoints hosteados estão abaixo. Como o certificado SSL é auto gerado, o browser vai reclamar mas está tudo pegando.
+
+# Build
+- git clone
+- docker-compose build
+- docker-compose up
+(pode ser que a sua maquina reclame por faltar algumas dependencias, o ec2 reclamou mas apontou para as que faltavam e foi só instalar usando yum.)
+
 # Endpoints
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com
 ------
