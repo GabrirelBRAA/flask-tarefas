@@ -11,6 +11,8 @@ Os endpoints hosteados estão abaixo. Como o certificado SSL é auto gerado, o b
 - docker-compose up
 (pode ser que a sua maquina reclame por faltar algumas dependencias, o ec2 reclamou mas apontou para as que faltavam e foi só instalar usando yum.)
 
+23/10/2024 - Derrubei a instância da EC2, links não funcionam mais.
+
 # Endpoints
 https://ec2-3-145-148-0.us-east-2.compute.amazonaws.com
 ------
